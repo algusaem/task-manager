@@ -1,0 +1,5 @@
+react
+redux
+react-redux
+node.js
+materialUI (https://mui.com/)
