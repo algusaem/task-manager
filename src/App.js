@@ -1,10 +1,12 @@
 import './App.css';
-import LoginForm from './components/LoginForm.jsx';
+import Login from './components/Login/Login.jsx';
+import LandingPage from './components/LandingPage/LandingPage'
 
 function App() {
   return (
-    <div className="App">
-      <LoginForm></LoginForm>
+    <div className="w-screen h-screen bg-green-500">
+      {/* <Login/> */}
+      <LandingPage />
     </div>
   );
 }
