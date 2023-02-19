@@ -3,6 +3,9 @@ import List from './List/List';
 import ListTaskButton from '../ListTaskButton';
 import ListTaskTitle from '../ListTaskTitle';
 
+//Mock API
+import listas from '../../../../mock/listas.json';
+
 const LeftPanel = () => {
 
   return (
@@ -13,9 +16,9 @@ const LeftPanel = () => {
       </div>
       
       <ul className='w-full h-full flex flex-col gap-2'>
-        <List listName={"Lista número 1"}/>
-        <List listName={"Lista número 2"}/>
-        <List listName={"Lista número 3"}/>
+        {listas.listas.map((element, key) => (
+          <List  listName={element.nombre} key={key} />
+        ))}
       </ul>
     </div>
   );

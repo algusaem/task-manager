@@ -3,8 +3,11 @@ import Task from './Task/Task';
 import ListTaskButton from '../ListTaskButton';
 import ListTaskTitle from '../ListTaskTitle';
 
-const RightPanel = () => {
+//Mock API
+import listas from '../../../../mock/listas.json';
 
+const RightPanel = () => {
+  
   return (
     <div className="w-4/6 h-full float-right bg-gray-200">
       <div className='px-8 my-4 w-full text-center'>
@@ -13,9 +16,9 @@ const RightPanel = () => {
         <ListTaskTitle titleName="TAREAS"/>
       </div>
       <ul className=' w-full h-full flex flex-col gap-2'>
-        <Task taskName={"Tarea número 1"}></Task>
-        <Task taskName={"Tarea número 2"}></Task>
-        <Task taskName={"Tarea número 3"}></Task>
+          {listas.listas[0].tareas.map((element, key) => (
+            <Task  taskName={element} key={key}></Task>
+          ))}
       </ul>
     </div>
   );
