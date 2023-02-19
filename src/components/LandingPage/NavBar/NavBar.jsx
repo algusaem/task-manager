@@ -1,13 +1,14 @@
 import React from 'react';
+import NavBar_ListItem from './NavBar_ListItem';
 
 function NavBar() {
 
   return (
     <ul className='flex justify-center w-full h-auto fixed top-0 border-b border-white py-3'>
-      <li className='mx-3'><a href='http://localhost:3000/' className='font-semibold text-white text-xl transition hover:text-[#671E8A]'>Inicio</a></li>
-      <li className='mx-3'><a href='http://localhost:3000/' className='font-semibold text-white text-xl transition hover:text-[#671E8A]'>Instrucciones</a></li>
-      <li className='mx-3'><a href='http://localhost:3000/' className='font-semibold text-white text-xl transition hover:text-[#671E8A]'>Github</a></li>
-      <li className='mx-3'><a href='http://localhost:3000/' className='font-semibold text-white text-xl transition hover:text-[#671E8A]'>Salir</a></li>
+      <NavBar_ListItem listItemName="Inicio" hRef={'#'}/>
+      <NavBar_ListItem listItemName="Instrucciones" hRef={'#'}/>
+      <NavBar_ListItem listItemName="Github" hRef={'#'}/>
+      <NavBar_ListItem listItemName="Salir" hRef={'#'}/>
     </ul>
   );
 }
