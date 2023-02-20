@@ -2,11 +2,10 @@ import React from 'react';
 import List from './List/List';
 import ListTaskButton from '../ListTaskButton';
 import ListTaskTitle from '../ListTaskTitle';
-
-//Mock API
-import listas from '../../../../mock/listas.json';
+import { useSelector } from 'react-redux';
 
 const LeftPanel = () => {
+  const listas = useSelector(state => state.lista);
 
   return (
     <div className="w-2/6 h-full float-left">
@@ -16,7 +15,7 @@ const LeftPanel = () => {
       </div>
       
       <ul className='w-full h-full flex flex-col gap-2'>
-        {listas.listas.map((element, key) => (
+        {listas.map((element, key) => (
           <List  listName={element.nombre} key={key} />
         ))}
       </ul>

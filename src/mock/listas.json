@@ -1,28 +1,26 @@
-{
-  "listas": [
-    {
-      "nombre": "Lista número 1",
-      "tareas": [
-        "Tarea 1 de la lista 1",
-        "Tarea 2 de la lista 1",
-        "Tarea 3 de la lista 1"
-      ]
-    },
-    {
-      "nombre": "Lista número 2",
-      "tareas": [
-        "Tarea 1 de la lista 2",
-        "Tarea 2 de la lista 2",
-        "Tarea 3 de la lista 2"
-      ]
-    },
-    {
-      "nombre": "Lista número 3",
-      "tareas": [
-        "Tarea 1 de la lista 3",
-        "Tarea 2 de la lista 3",
-        "Tarea 3 de la lista 3"
-      ]
-    }
-  ]
-}
+[
+  {
+    "nombre": "Lista número 1",
+    "tareas": [
+      "Tarea 1 de la lista 1",
+      "Tarea 2 de la lista 1",
+      "Tarea 3 de la lista 1"
+    ]
+  },
+  {
+    "nombre": "Lista número 2",
+    "tareas": [
+      "Tarea 1 de la lista 2",
+      "Tarea 2 de la lista 2",
+      "Tarea 3 de la lista 2"
+    ]
+  },
+  {
+    "nombre": "Lista número 3",
+    "tareas": [
+      "Tarea 1 de la lista 3",
+      "Tarea 2 de la lista 3",
+      "Tarea 3 de la lista 3"
+    ]
+  }
+]
