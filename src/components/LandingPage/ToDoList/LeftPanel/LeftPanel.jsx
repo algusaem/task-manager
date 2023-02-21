@@ -2,10 +2,19 @@ import React from 'react';
 import List from './List/List';
 import ListTaskButton from '../ListTaskButton';
 import ListTaskTitle from '../ListTaskTitle';
-import { useSelector } from 'react-redux';
+
+// Redux
+import { useSelector, useDispatch } from 'react-redux';
+import { setListaElegida } from '../../../../redux/reducers/listaSlice';
+
 
 const LeftPanel = () => {
-  const listas = useSelector(state => state.lista);
+  const listas = useSelector(state => state.lista.listas);
+  const dispatch = useDispatch();
+
+  const handleClick =(nombre) => {
+    dispatch(setListaElegida({nombre}))
+  }
 
   return (
     <div className="w-2/6 h-full float-left">
@@ -16,7 +25,7 @@ const LeftPanel = () => {
       
       <ul className='w-full h-full flex flex-col gap-2'>
         {listas.map((element, key) => (
-          <List  listName={element.nombre} key={key} />
+          <List  listName={element.nombre} key={key} onClick={() => handleClick(element.nombre)} />
         ))}
       </ul>
     </div>
