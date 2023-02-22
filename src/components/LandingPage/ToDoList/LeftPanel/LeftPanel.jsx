@@ -7,7 +7,6 @@ import ListTaskTitle from '../ListTaskTitle';
 import { useSelector, useDispatch } from 'react-redux';
 import { setListaElegida } from '../../../../redux/reducers/listaSlice';
 
-
 const LeftPanel = () => {
   const listas = useSelector(state => state.lista.listas);
   const dispatch = useDispatch();
