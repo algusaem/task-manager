@@ -1,6 +1,0 @@
-react
-redux
-react-redux
-node.js
-Tailwind
-Material Tailwind
