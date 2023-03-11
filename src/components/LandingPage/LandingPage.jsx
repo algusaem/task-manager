@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import ToDoList from './ToDoList/ToDoList';
 import NavBar from './NavBar/NavBar';
 import { useNavigate } from 'react-router-dom';
+import ToDoModal from './ToDoModal/ToDoModal';
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -17,6 +18,7 @@ function LandingPage() {
     <div className='w-full h-full bg-white'>
       <NavBar/>
       <ToDoList/>
+      {/* <ToDoModal/> */}
     </div>
   );
 }
