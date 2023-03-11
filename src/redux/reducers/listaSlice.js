@@ -1,10 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import listas from '../../mock/listas.json';
 
 export const listaSlice = createSlice({
   name: "lista",
   initialState: {
-    listas,
+    listas: [],
     listaElegida: undefined,
   },
 
@@ -12,9 +11,14 @@ export const listaSlice = createSlice({
     // Define la lista elegida por el usuario.
     setListaElegida: (state, action) => {
       state.listaElegida = action.payload.nombre;
-    }
+    },
+
+    // Guarda las listas disponibles en Redux.
+    initListas: (state, action) => {
+      state.listas = action.payload;
+    },
   }
 });
 
-export const { setListaElegida } = listaSlice.actions;
+export const { setListaElegida, initListas } = listaSlice.actions;
 export default listaSlice.reducer;
