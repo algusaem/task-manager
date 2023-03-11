@@ -14,5 +14,5 @@ export const tareaSlice = createSlice({
   }
 });
 
-export const { setTareas } = tareaSlice.actions;
+export const { setTareas, deleteToggleRefresh } = tareaSlice.actions;
 export default tareaSlice.reducer;
