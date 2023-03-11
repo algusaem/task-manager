@@ -8,9 +8,8 @@ function LandingPage() {
 
   useEffect(() => {
     // Comprueba si el usuario ha realizado el login y lo redirige.
-    if(localStorage.getItem("logged") !== "true") {
+    if(!localStorage.getItem("username")) {
       navigate("/");
-      localStorage.setItem("logged", false);
     }
   },[]);
 

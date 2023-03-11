@@ -7,10 +7,8 @@ function Login() {
 
   useEffect(() => {
     // Comprueba si el usuario ha realizado el login y lo redirige.
-    if(localStorage.getItem("logged") === "true") {
+    if(localStorage.getItem("username")) {
       navigate("/todo");
-    }else{
-      localStorage.setItem("logged", false);
     }
   },[]);
     

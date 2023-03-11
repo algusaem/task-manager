@@ -13,8 +13,6 @@ export const usuarioSlice = createSlice({
         state.id = action.payload.id;
         state.username = action.payload.username;
         state.password = action.payload.password;
-
-        localStorage.setItem('logged', true);
     },
   }
 });

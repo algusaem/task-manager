@@ -5,11 +5,11 @@ function NavBar_ListItem({listItemName, hRef}) {
   // Al hacer submit comprueba el login.
   async function handleSubmit(e) {
     e.preventDefault();
-    localStorage.setItem("logged", false);
+    localStorage.removeItem("username");
     window.location.reload();
   }
   
-  // Si el botón renderizado es "Salir", las propiedades serán diferentes.
+  // Si el botón renderizado es "Cerrar Sesión", las propiedades serán diferentes.
   return (
     <li className='mx-3'>
       {listItemName === "Cerrar Sesión" ? (

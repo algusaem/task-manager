@@ -8,10 +8,11 @@ export default async function getLogin(username, password) {
     const user = data.find((obj) => obj.username === username && obj.password === password);
 
     // Si el usuario y contraseña son encontrados, los almacena en la store.
+    // Guarda también el usuario en localStorage.
     if (user) {
         const { _id, username, password } = user;
         const userData = { id: _id, username, password };
-
+        localStorage.setItem("username", username);
         store.dispatch(initUsuario(userData));
         return true;
     } else {

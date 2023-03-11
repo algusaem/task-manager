@@ -12,21 +12,25 @@ const LeftPanel = () => {
   const listas = useSelector(state => state.lista.listas);
   const dispatch = useDispatch();
 
+  // useEffect que se ejecuta 1 vez al montar el componente.
+  // Inicializa la creación de las listas mediante una llamada a la API.
+  useEffect(() => {
+    getListas(localStorage.getItem("username"));
+  }, [listas])
+
   // Guarda la lista elegida en un estado de Redux.
   const handleClick = (nombre) => {
     dispatch(setListaElegida({nombre}))
   }
 
-  // useEffect que se ejecuta 1 vez al montar el componente.
-  // Inicializa la creación de las listas mediante una llamada a la API.
-  useEffect(() => {
-    getListas();
-  }, [])
+  const buttonHandleClick = () => {
+    alert("Mostrar un modal refachero");
+  }
 
   return (
     <div className="w-2/6 h-full float-left">
       <div className='px-8 my-4 w-full'>
-        <ListTaskButton />
+        <ListTaskButton onClick={() => {buttonHandleClick()}} />
         <ListTaskTitle titleName="LISTAS"/>
       </div>
       
