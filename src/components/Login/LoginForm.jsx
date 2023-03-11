@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
-import { Button } from "@material-tailwind/react";
-import { Input } from "@material-tailwind/react";
+import { Button, Input } from "@material-tailwind/react";
+import getLogin from "../../api/getLogin";
 
 function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  function handleSubmit(e) {
+  // Al hacer submit comprueba el login.
+  async function handleSubmit(e) {
     e.preventDefault();
-    // Perform login logic here
-    console.log(`Username: ${username} Password: ${password}`);
+    await getLogin(username, password);
+    window.location.reload();
   }
 
   return (
     <div className='bg-white w-96 h-80 flex justify-center items-center rounded-md flex-col'>
       <h1 className='text-green-500 text-5xl underline'>Login</h1>
-      <form onSubmit={handleSubmit} className="text-center">
+      <form onSubmit={(e) => { handleSubmit(e) }} className="text-center">
         <br/>
         <Input variant="outlined" color="green" label="Usuario" size="lg"
           value={username} onChange={(e) => setUsername(e.target.value)} type='text'
