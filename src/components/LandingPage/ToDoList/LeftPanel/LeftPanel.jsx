@@ -7,6 +7,7 @@ import getListas from '../../../../api/getListas';
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
 import { setListaElegida } from '../../../../redux/reducers/listaSlice';
+import { setModal } from '../../../../redux/reducers/landingPageSlice';
 
 const LeftPanel = () => {
   const listas = useSelector(state => state.lista.listas);
@@ -24,7 +25,7 @@ const LeftPanel = () => {
   }
 
   const buttonHandleClick = () => {
-    alert("Mostrar un modal refachero");
+    dispatch(setModal("list"));
   }
 
   return (

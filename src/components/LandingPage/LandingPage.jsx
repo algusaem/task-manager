@@ -18,7 +18,7 @@ function LandingPage() {
     <div className='w-full h-full bg-white'>
       <NavBar/>
       <ToDoList/>
-      {/* <ToDoModal/> */}
+      <ToDoModal id="addModal"/>
     </div>
   );
 }

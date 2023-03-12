@@ -2,10 +2,12 @@ import React, { useEffect } from 'react';
 import Task from './Task/Task';
 import ListTaskButton from '../ListTaskButton';
 import ListTaskTitle from '../ListTaskTitle';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import getTareas from '../../../../api/getTareas';
+import { setModal } from '../../../../redux/reducers/landingPageSlice';
 
 const RightPanel = () => {
+  const dispatch = useDispatch();
   const listaElegida = useSelector(state => state.lista.listaElegida);
   const tareas = useSelector(state => state.tarea.tareas);
   
@@ -14,7 +16,7 @@ const RightPanel = () => {
   },[listaElegida]);
 
   const buttonHandleClick = () => {
-    alert("Mostrar un modal refachero");
+    dispatch(setModal("task"));
   }
 
   return (
