@@ -15,6 +15,7 @@ const RightPanel = () => {
     getTareas(listaElegida);
   },[listaElegida]);
 
+  // Muestra el modal de tareas.
   const buttonHandleClick = () => {
     dispatch(setModal("task"));
   }

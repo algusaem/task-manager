@@ -24,6 +24,7 @@ const LeftPanel = () => {
     dispatch(setListaElegida({nombre}))
   }
 
+  // Muestra el modal de listas.
   const buttonHandleClick = () => {
     dispatch(setModal("list"));
   }
