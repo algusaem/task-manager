@@ -31,6 +31,7 @@ const ToDoModal = () => {
 
         if(type === "list") {
             await postLista(input);
+
         }else if(type === "task") {
             await postTarea(input);
         }

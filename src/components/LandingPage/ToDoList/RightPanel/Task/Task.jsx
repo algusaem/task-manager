@@ -9,11 +9,13 @@ const Task = ({ taskName }) => {
   const handleDeleteClick = () => {
     deleteTareas(taskName);
     setDeleted(true);
+    
   };
 
-  // 
+  // TO-DO
   const handleSubmit = () => {
     console.log(taskName);
+    // TO-DO
   }
 
   return (

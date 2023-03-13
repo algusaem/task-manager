@@ -11,8 +11,17 @@ export const tareaSlice = createSlice({
     setTareas: (state, action) => {
       state.tareas = action.payload;
     },
+    // Añade una nueva tarea a la lista de tareas.
+    setNewTask: (state, action) => {
+      const tarea = {
+        _id: action.payload._id,
+        name: action.payload.name,
+        listname: action.payload.listname
+      };
+      state.tareas.push(tarea);
+    },
   }
 });
 
-export const { setTareas, deleteToggleRefresh } = tareaSlice.actions;
+export const { setTareas, setNewTask } = tareaSlice.actions;
 export default tareaSlice.reducer;

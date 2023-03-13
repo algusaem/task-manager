@@ -1,10 +1,34 @@
 import React from 'react';
+import deleteIcon from "../../../../../assets/delete-icon.svg";
+import createIcon from "../../../../../assets/create-icon.svg";
+import deleteLista from '../../../../../api/deleteLista';
 
 const List = ({ listName, onClick }) => {
 
+  // Delete o Edit de la lista elegida.
+  async function handleClick(type) {
+    if(type === "delete") {
+      await deleteLista(listName);
+      // TO-DO -> borrar todas las tareas linkeadas a la lista.
+    }else if(type === "edit") {
+      // TO-DO
+    }
+  }
+
   return (
-    <div onClick={onClick} className='mx-8 p-4 bg-green-500 w-fit h-fit rounded-md transition hover:bg-[#671E8A] cursor-pointer'>
-        <li className='text-xl text-center text-white'><a>{ listName }</a></li>
+    <div onClick={onClick} className='inline mx-4 p-4 w-full h-fit rounded-md transition'>
+      <div className='inline p-4 bg-green-500 w-fit h-fit rounded-md transition hover:bg-[#671E8A] cursor-pointer'>
+        <li className='inline text-xl text-center text-white'>
+          <a>{ listName }</a>
+
+        </li>
+      </div>
+      <li onClick={() => {handleClick("delete")}} className='float-right text-xl cursor-pointer'>
+        <img src={deleteIcon} className='h-6 mx-4 transform hover:scale-125' />
+      </li>
+      <li onClick={() => {handleClick("edit")}} className='float-right text-xl cursor-pointer'>
+        <img src={createIcon} className='h-6 mx-4 transform hover:scale-125' />
+      </li>
     </div>
   );
 }

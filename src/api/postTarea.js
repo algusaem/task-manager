@@ -1,4 +1,5 @@
 import store from "../redux/store";
+import { setNewTask } from "../redux/reducers/tareaSlice";
 
 // Crea una tarea para la lista seleccionada.
 export default async function postTarea(content) {
@@ -13,9 +14,9 @@ export default async function postTarea(content) {
             name: content,
         })
       });
-  
+      
       const data = await response.json();
-      return data;
+      store.dispatch(setNewTask(data));
     } catch (error) {
       console.error(error);
       return null;
