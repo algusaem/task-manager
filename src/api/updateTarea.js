@@ -2,10 +2,10 @@
 export default async function updateTarea(name, updatedData) {
     const response = await fetch(`https://task-manager-api-five.vercel.app/tasks/name/${name}`, {
       method: 'PUT',
-      body: JSON.stringify(updatedData),
       headers: {
         'Content-Type': 'application/json'
-      }
+      },
+      body: JSON.stringify({ name: updatedData })
     });
     const data = await response.json();
     console.log(data);

@@ -20,23 +20,36 @@ const RightPanel = () => {
     dispatch(setModal("task"));
   }
 
-  return (
-    <div className="w-4/6 h-full float-right bg-gray-200 overflow-y-scroll">
-      <div className='px-8 my-4 w-full text-center'>
-
-        {/* Si hay una lista elegida, muestra el botón de añadir nueva tarea. */}
-        { listaElegida ? <ListTaskButton onClick={() => {buttonHandleClick()}}/> : null }
-        <ListTaskTitle titleName="TAREAS"/>
+  // Si no hay tareas, muestra un mensaje.
+  // Si hay tareas las muestra y permite interactuar.
+  if(tareas.length === 0) {
+    return(
+      <div className="w-4/6 h-full float-right bg-gray-200 overflow-y-scroll ">
+        <div className='w-full h-full flex justify-center items-center'>
+          <h1 className='text-3xl font-medium text-green-500'>No hay ninguna lista seleccionada</h1>
+        </div>
       </div>
-      <ul className=' w-full h-fit flex flex-col gap-2'>
-        
-        {/* Llamar a la api de tareas */}
-        { tareas.map((element, key) => (
-          <Task taskName={element.name} key={key} />
-        ))}
-      </ul>
-    </div>
-  );
+    );
+  }else{
+    return (
+      <div className="w-4/6 h-full float-right bg-gray-200 overflow-y-scroll">
+        <div className='px-8 my-4 w-full text-center'>
+          <ListTaskButton onClick={() => {buttonHandleClick()}}/>
+          <ListTaskTitle titleName="TAREAS"/>
+        </div>
+  
+        <ul className=' w-full h-fit flex flex-col gap-2'>
+          {
+            tareas.map((element, key) => (
+              <Task taskName={element.name} key={key} />
+            ))
+          }
+        </ul>
+      </div>
+    );
+  }
+
+
 }
 
 export default RightPanel;

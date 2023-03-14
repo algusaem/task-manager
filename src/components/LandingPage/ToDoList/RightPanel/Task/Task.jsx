@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import deleteIcon from '../../../../../assets/delete-icon.svg';
+import createIcon from '../../../../../assets/create-icon.svg'
 import deleteTareas from '../../../../../api/deleteTarea';
 
 const Task = ({ taskName }) => {
   const [deleted, setDeleted] = useState(false);
 
   // Al clicar llama al DELETE de la API.
-  const handleDeleteClick = () => {
-    deleteTareas(taskName);
-    setDeleted(true);
-    
+  const handleClick = (type) => {
+    if(type === "delete") {
+      deleteTareas(taskName);
+      setDeleted(true);
+    }else if(type === "edit") {
+      console.log("editao");
+    }
   };
 
   // TO-DO
@@ -25,8 +29,11 @@ const Task = ({ taskName }) => {
         onSubmit={() => {handleSubmit()}}
         className='group-hover:bg-[#671E8A] group-hover:placeholder:text-white placeholder:text-black transition focus:outline-none'/>
       </li>
-      <li onClick={handleDeleteClick} className='float-right text-xl'>
+      <li onClick={() => handleClick("delete")} className='float-right text-xl'>
         <img src={deleteIcon} className='h-6 mx-4 transform hover:scale-125' />
+      </li>
+      <li onClick={() => {handleClick("edit")}} className='float-right text-xl'>
+        <img src={createIcon} className='h-6 mx-4 transform hover:scale-125' />
       </li>
     </div>
   );

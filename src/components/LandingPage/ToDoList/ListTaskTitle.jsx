@@ -4,7 +4,7 @@ const ListTaskTitle = ({titleName}) => {
 
   return (
     <h1 className='text-3xl font-medium text-green-500 inline'>
-        {titleName}
+      {titleName}
     </h1>
   );
 }

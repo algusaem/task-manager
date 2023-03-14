@@ -11,6 +11,7 @@ export const tareaSlice = createSlice({
     setTareas: (state, action) => {
       state.tareas = action.payload;
     },
+
     // Añade una nueva tarea a la lista de tareas.
     setNewTask: (state, action) => {
       const tarea = {
@@ -20,8 +21,13 @@ export const tareaSlice = createSlice({
       };
       state.tareas.push(tarea);
     },
+    // Borra del estado las tareas con el nombre proporcionado.
+    deleteTask: (state, action) => {
+      const filteredTareas = state.tareas.filter(tarea => tarea.name !== action.payload);
+      state.tareas = filteredTareas;
+    }
   }
 });
 
-export const { setTareas, setNewTask } = tareaSlice.actions;
+export const { setTareas, setNewTask, deleteTask } = tareaSlice.actions;
 export default tareaSlice.reducer;

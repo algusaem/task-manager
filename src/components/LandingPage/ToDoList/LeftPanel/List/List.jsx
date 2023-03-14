@@ -2,16 +2,18 @@ import React from 'react';
 import deleteIcon from "../../../../../assets/delete-icon.svg";
 import createIcon from "../../../../../assets/create-icon.svg";
 import deleteLista from '../../../../../api/deleteLista';
+import { useDispatch } from 'react-redux';
+import { setModal } from '../../../../../redux/reducers/landingPageSlice';
 
 const List = ({ listName, onClick }) => {
+  const dispatch = useDispatch();
 
   // Delete o Edit de la lista elegida.
   async function handleClick(type) {
     if(type === "delete") {
       await deleteLista(listName);
-      // TO-DO -> borrar todas las tareas linkeadas a la lista.
     }else if(type === "edit") {
-      // TO-DO
+      dispatch(setModal("editList"));
     }
   }
 
@@ -20,7 +22,6 @@ const List = ({ listName, onClick }) => {
       <div className='inline p-4 bg-green-500 w-fit h-fit rounded-md transition hover:bg-[#671E8A] cursor-pointer'>
         <li className='inline text-xl text-center text-white'>
           <a>{ listName }</a>
-
         </li>
       </div>
       <li onClick={() => {handleClick("delete")}} className='float-right text-xl cursor-pointer'>
