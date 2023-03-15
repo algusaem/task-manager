@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 export const tareaSlice = createSlice({
   name: "tarea",
   initialState: {
-    tareas: []
+    tareas: [],
+    tareaElegida: null,
   },
 
   reducers: {
@@ -25,9 +26,24 @@ export const tareaSlice = createSlice({
     deleteTask: (state, action) => {
       const filteredTareas = state.tareas.filter(tarea => tarea.name !== action.payload);
       state.tareas = filteredTareas;
+    },
+
+    // Actualiza la tarea seleccionada
+    updateTask: (state, action) => {
+      const { tareaElegida, input } = action.payload;
+      const tareaIndex = state.tareas.findIndex(tarea => tarea.name === tareaElegida);
+      if (tareaIndex !== -1) {
+        state.tareas[tareaIndex].name = input;
+        state.tareaElegida = input;
+      }
+    },
+    
+    // Añade al estado la tarea elegida.
+    setTareaElegida: (state, action) => {
+      state.tareaElegida = action.payload;
     }
   }
 });
 
-export const { setTareas, setNewTask, deleteTask } = tareaSlice.actions;
+export const { setTareas, setNewTask, deleteTask, setTareaElegida, updateTask } = tareaSlice.actions;
 export default tareaSlice.reducer;

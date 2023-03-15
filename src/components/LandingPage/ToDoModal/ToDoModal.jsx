@@ -5,6 +5,8 @@ import React, { useRef, useEffect, useState } from 'react';
 import postLista from "../../../api/postLista";
 import postTarea from "../../../api/postTarea";
 import updateLista from "../../../api/updateLista";
+import updateTarea from "../../../api/updateTarea";
+import { updateTask } from "../../../redux/reducers/tareaSlice";
 
 const ToDoModal = () => {
     const [inputValue, setInputValue] = useState('');
@@ -14,6 +16,7 @@ const ToDoModal = () => {
     const modal = useSelector(state => state.landingPage);
     const listas = useSelector(state => state.lista.listas);
     const listaElegida = useSelector(state => state.lista.listaElegida);
+    const tareaElegida = useSelector(state => state.tarea.tareaElegida);
     
     // useEffect para detectar el click fuera del modal y cerrarlo.
     useEffect(() => {
@@ -42,9 +45,15 @@ const ToDoModal = () => {
 
         }else if(type === "editList") {
             const chosenList = listas.find(element => element.name === listaElegida);
-            if (chosenList) { updateLista(chosenList._id, input) }            
+            if (chosenList) { updateLista(chosenList._id, input) }
+                    
         }else if(type === "editTask") {
-            // Llamar API.
+            updateTarea(tareaElegida, input);
+            let tarea = {
+                "tareaElegida": tareaElegida,
+                "input": input
+            }
+            dispatch(updateTask(tarea));
         }
 
         // Cierra el modal.
