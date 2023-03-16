@@ -16,7 +16,7 @@ export default async function getLogin(username, password) {
         store.dispatch(initUsuario(userData));
         return true;
     } else {
-        alert("Usuario no encontrado.")
+        alert("Usuario no encontrado. Si quieres entrar cómo invitado utiliza el usuario: invitado y la contraseña: invitado")
         return false;
     }
 }
