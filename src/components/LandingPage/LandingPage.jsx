@@ -16,7 +16,7 @@ function LandingPage() {
 
   return (
     <div className='w-full h-full bg-white'>
-      <NavBar/>
+      <NavBar type="landing"/>
       <ToDoList/>
       <ToDoModal id="addModal"/>
     </div>

@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import LoginForm from './LoginForm';
 import { useNavigate } from 'react-router-dom';
+import NavBar from "../LandingPage/NavBar/NavBar";
+import RegisterModal from './RegisterModal';
 
 function Login() {
   const navigate = useNavigate();
@@ -14,7 +16,9 @@ function Login() {
     
   return (
     <div className='w-full h-full flex justify-center items-center'>
+      <NavBar type="login"/>
       <LoginForm/>
+      <RegisterModal/>
     </div>
   );
 }
