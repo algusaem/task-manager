@@ -11,8 +11,6 @@ export const loginSlice = createSlice({
     toggleModal: (state) => {
       state.modal = !state.modal;
     },
-
-
   }
 });
 
