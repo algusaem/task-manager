@@ -10,6 +10,6 @@ ReactJS, Redux, React-Router, Tailwind, Tailwind Material, Node, Express, MongoD
 Recomiendo utilizar la versión alojada en (https://task-manager-mu-neon.vercel.app/).
 
 # Colores del Proyecto
-Color Primario: #4caf50
+Color Primario: #4caf50 <br>
 Color Secundario: #FFFFFF
 Color Terciario: #671E8A
