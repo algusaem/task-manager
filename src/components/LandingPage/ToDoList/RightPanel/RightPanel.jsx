@@ -24,7 +24,7 @@ const RightPanel = () => {
   // Si hay tareas las muestra y permite interactuar.
   if(!listaElegida) {
     return(
-      <div className="lg:w-4/6 w-full h-full float-right bg-gray-200 overflow-y-scroll lg:mt-0 mt-6">
+      <div className="lg:w-4/6 w-full h-full float-right bg-gray-200 overflow-x-hidden overflow-y-scroll lg:mt-0 mt-6">
         <div className='w-full h-full flex justify-center items-center'>
           <h1 className='text-center text-3xl font-medium text-green-500'>No hay ninguna lista seleccionada</h1>
         </div>
@@ -32,7 +32,7 @@ const RightPanel = () => {
     );
   }else{
     return (
-      <div className="lg:w-4/6 w-full h-full float-right bg-gray-200 overflow-y-scroll lg:mt-0 mt-6">
+      <div className="lg:w-4/6 w-full h-full float-right bg-gray-200 overflow-x-hidden overflow-y-scroll lg:mt-0 mt-6">
         <div className='px-8 my-4 w-full text-center'>
           <ListTaskButton onClick={() => {buttonHandleClick()}}/>
           <ListTaskTitle titleName="TAREAS"/>
