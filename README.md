@@ -1,5 +1,5 @@
 # Task Manager (Aplicación de Notas)
-Aplicación que permite crear, guardar y borrar notas, además de organizarlas en listas, que a su vez pueden crearse, guardarse y/o borrarse.
+Aplicación que permite crear, guardar y borrar tareas, además de organizarlas en listas, que a su vez pueden crearse, guardarse y/o borrarse.
 
 ![Alt text](/src/assets/listas.png?raw=true "Landing Page")
 
