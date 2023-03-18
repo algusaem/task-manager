@@ -19,7 +19,7 @@ function NavBar(type) {
 
   if(type.type === "landing") {
     return (
-      <ul className='flex justify-center w-full h-auto fixed top-0 border-b border-white py-3'>
+      <ul className='flex justify-center w-full h-auto fixed top-0 border-b border-white py-3 bg-green-500'>
         <NavBarListItem listItemName="Instrucciones" hRef={'#'} onClick={toggleInstrucciones}/>
         <NavBarListItem listItemName="Github" hRef={'https://github.com/algusaem/task-manager'}/>
         <NavBarListItem listItemName="Cerrar Sesión" hRef={'#'}/>
@@ -27,7 +27,7 @@ function NavBar(type) {
     );
   }else if(type.type === "login") {
     return (
-      <ul className='flex justify-center w-full h-auto fixed top-0 border-b border-white py-3'>
+      <ul className='flex justify-center w-full h-auto fixed top-0 border-b border-white py-3 bg-green-500'>
         <NavBarListItem listItemName="Instrucciones" hRef={'#'} onClick={toggleInstrucciones}/>
         <NavBarListItem listItemName="Github" hRef={'https://github.com/algusaem/task-manager'}/>
         <NavBarListItem onClick={handleClick} listItemName="Registrarse" hRef={'#'}/>
