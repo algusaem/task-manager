@@ -30,8 +30,8 @@ const LeftPanel = () => {
   }
 
   return (
-    <div className="w-2/6 h-full float-left">
-      <div className='px-8 my-4 w-full'>
+    <div className="w-full h-auto lg:w-2/6 lg:h-full float-left">
+      <div className='px-8 my-4 w-full text-center'>
         <ListTaskButton onClick={() => {buttonHandleClick()}} />
         <ListTaskTitle titleName="LISTAS"/>
       </div>
