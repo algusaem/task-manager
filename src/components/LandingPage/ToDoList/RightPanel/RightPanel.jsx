@@ -22,7 +22,7 @@ const RightPanel = () => {
 
   // Si no hay tareas, muestra un mensaje.
   // Si hay tareas las muestra y permite interactuar.
-  if(tareas.length === 0) {
+  if(!listaElegida) {
     return(
       <div className="w-4/6 h-full float-right bg-gray-200 overflow-y-scroll ">
         <div className='w-full h-full flex justify-center items-center'>

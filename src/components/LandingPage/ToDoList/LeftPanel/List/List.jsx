@@ -4,6 +4,7 @@ import createIcon from "../../../../../assets/create-icon.svg";
 import deleteLista from '../../../../../api/deleteLista';
 import { useDispatch } from 'react-redux';
 import { setModal } from '../../../../../redux/reducers/landingPageSlice';
+import { unsetListaElegida } from '../../../../../redux/reducers/listaSlice';
 
 const List = ({ listName, onClick }) => {
   const dispatch = useDispatch();
@@ -12,6 +13,7 @@ const List = ({ listName, onClick }) => {
   async function handleClick(type) {
     if(type === "delete") {
       await deleteLista(listName);
+      dispatch(unsetListaElegida());
     }else if(type === "edit") {
       dispatch(setModal("editList"));
     }

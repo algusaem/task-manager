@@ -1,3 +1,0 @@
-Primary Color: #4caf50
-Secondary Color: white
-Tertiary Color: #671E8A

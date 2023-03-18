@@ -23,10 +23,15 @@ const RegisterModal = () => {
         dispatch(toggleModal());
     }
 
+    // Cierra el modal al clicar fuera.
+    const handleCloseModal = () => {
+        dispatch(toggleModal()); 
+    };
+
     if(showModal) {
         return(
-            <div className="fixed z-50 mx-auto inset-0 flex justify-center items-center bg-black bg-opacity-50">
-                <div className="w-screen h-screen max-w-md md:h-auto">
+            <div className="fixed z-50 mx-auto inset-0 flex justify-center items-center bg-black bg-opacity-50" onClick={handleCloseModal}>
+                <div className="w-screen max-w-md md:h-auto" onClick={e => e.stopPropagation()}>
                     <div className="bg-white rounded-lg shadow dark:bg-gray-700 p-4"> 
                         <h1 className="text-3xl font-medium text-green-500 text-center m-4">Registro</h1>
                         <form className="w-full flex flex-col items-center">

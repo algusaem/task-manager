@@ -1,6 +1,6 @@
 import React from 'react';
 
-function NavBar_ListItem({listItemName, hRef, onClick}) {
+function NavBarListItem({listItemName, hRef, onClick}) {
 
   // Al hacer submit desloguea al usuario.
   async function handleSubmit(e) {
@@ -9,7 +9,6 @@ function NavBar_ListItem({listItemName, hRef, onClick}) {
     window.location.reload();
   }
 
-
   // Si el botón renderizado es "Cerrar Sesión", las propiedades serán diferentes.
   return (
     <li className='mx-3'>
@@ -17,7 +16,7 @@ function NavBar_ListItem({listItemName, hRef, onClick}) {
         <a onClick={handleSubmit} className="className='font-semibold text-white text-xl transition hover:text-[#671E8A] cursor-pointer">
           {listItemName}
         </a>
-      ) : listItemName === "Registrarse" ? (
+      ) : onClick ? (
         <a href={hRef} onClick={onClick} className="className='font-semibold text-white text-xl transition hover:text-[#671E8A]">
           {listItemName}
         </a>
@@ -30,4 +29,4 @@ function NavBar_ListItem({listItemName, hRef, onClick}) {
   );
 }
 
-export default NavBar_ListItem;
+export default NavBarListItem;

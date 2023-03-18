@@ -18,22 +18,13 @@ const ToDoModal = () => {
     const listaElegida = useSelector(state => state.lista.listaElegida);
     const tareaElegida = useSelector(state => state.tarea.tareaElegida);
     
-    // useEffect para detectar el click fuera del modal y cerrarlo.
-    useEffect(() => {
-        function handleClickOutside(event) {
-            if (modalRef.current && !modalRef.current.contains(event.target)) {
-                dispatch(unsetModal());
-            }
-        }
-        document.addEventListener('mousedown', handleClickOutside);
-
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, [dispatch]);
+    // Cierra el modal al clicar fuera.
+    const handleCloseModal = () => {
+        dispatch(unsetModal());
+    };
 
     // Dependiendo del botón clicado llama a un POST o UPDATE.
-    async function handleClick(e, type) {
+    const handleClick = async (e, type) => {
         e.preventDefault();
         const input = inputValue;
 
@@ -46,7 +37,7 @@ const ToDoModal = () => {
         }else if(type === "editList") {
             const chosenList = listas.find(element => element.name === listaElegida);
             if (chosenList) { updateLista(chosenList._id, input) }
-                    
+            
         }else if(type === "editTask") {
             updateTarea(tareaElegida, input);
             let tarea = {
@@ -66,8 +57,8 @@ const ToDoModal = () => {
         switch(modal.content) {
             case "list":
                 return(
-                    <div className="fixed z-50 mx-auto inset-0 flex justify-center items-center bg-black bg-opacity-50">
-                        <div className="w-screen h-screen max-w-md md:h-auto">
+                    <div className="fixed z-50 mx-auto inset-0 flex justify-center items-center bg-black bg-opacity-50" onClick={handleCloseModal}>
+                        <div className="w-screen max-w-md md:h-auto" onClick={e => e.stopPropagation()}>
                             <div ref={modalRef} id="modalContent" className="bg-white rounded-lg shadow dark:bg-gray-700 p-4"> 
                                 <h1 className="text-3xl font-medium text-green-500 text-center m-4">Nueva Lista</h1>
                                 <form className="w-full flex flex-col items-center">
@@ -82,7 +73,7 @@ const ToDoModal = () => {
             case "task":
                 return(
                     <div className="fixed z-50 mx-auto inset-0 flex justify-center items-center bg-black bg-opacity-50">
-                        <div className="w-screen h-screen max-w-md md:h-auto">
+                        <div className="w-screen max-w-md md:h-auto">
                             <div ref={modalRef} id="modalContent" className="bg-white rounded-lg shadow dark:bg-gray-700 p-4"> 
                                 <h1 className="text-3xl font-medium text-green-500 text-center m-4">Nueva Tarea</h1>
                                 <form className="w-full flex flex-col items-center">
@@ -96,7 +87,7 @@ const ToDoModal = () => {
             case "editList":
                 return(
                     <div className="fixed z-50 mx-auto inset-0 flex justify-center items-center bg-black bg-opacity-50">
-                        <div className="w-screen h-screen max-w-md md:h-auto">
+                        <div className="w-screen max-w-md md:h-auto">
                             <div ref={modalRef} id="modalContent" className="bg-white rounded-lg shadow dark:bg-gray-700 p-4"> 
                                 <h1 className="text-3xl font-medium text-green-500 text-center m-4">Editar Lista</h1>
                                 <form className="w-full flex flex-col items-center">
@@ -111,7 +102,7 @@ const ToDoModal = () => {
             case 'editTask':
                 return(
                     <div className="fixed z-50 mx-auto inset-0 flex justify-center items-center bg-black bg-opacity-50">
-                        <div className="w-screen h-screen max-w-md md:h-auto">
+                        <div className="w-screen max-w-md md:h-auto">
                             <div ref={modalRef} id="modalContent" className="bg-white rounded-lg shadow dark:bg-gray-700 p-4"> 
                                 <h1 className="text-3xl font-medium text-green-500 text-center m-4">Editar Tarea</h1>
                                 <form className="w-full flex flex-col items-center">

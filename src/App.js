@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Login from './components/Login/Login.jsx';
 import LandingPage from './components/LandingPage/LandingPage';
+import Instrucciones from './components/Instrucciones/Instrucciones';
 
 function App() {
   
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/todo" element={<LandingPage />} />
         </Routes>
+        <Instrucciones/>
       </div>
     </Router>
   );
