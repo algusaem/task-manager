@@ -25,11 +25,11 @@ const Task = ({ taskName }) => {
   return (
 <div className={`group mx-auto p-4 bg-white sm:w-full lg:w-[90%] h-fit rounded-md transition hover:bg-[#671E8A] ${deleted ? 'hidden' : ''}`}>
   <div className='flex justify-between'>
-    <li className='text-xl group-hover:text-white inline mx-auto'>
+    <li className='text-xl group-hover:text-white inline'>
       <input placeholder={taskName} className='bg-white group-hover:bg-[#671E8A] group-hover:placeholder:text-white placeholder:text-black transition focus:outline-none' disabled/>
     </li>
     <div className='flex'>
-      <li onClick={() => {handleClick("edit")}} className='cursor-pointer mx-auto'>
+      <li onClick={() => {handleClick("edit")}} className='cursor-pointer'>
         <img src={createIcon} className='h-6 mx-6 lg:mx-4 transform hover:scale-125' />
       </li>
       <li onClick={() => handleClick("delete")} className='cursor-pointer mx-auto'>
